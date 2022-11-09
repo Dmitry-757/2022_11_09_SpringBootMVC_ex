@@ -7,5 +7,20 @@
 </head>
 <body>
     <span th:text = "${'Hello mr. ' +name}"></span>
+<table>
+    <thead>
+    <tr>
+        <th>column1</th>
+        <th>column2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item, iterStat : ${animals}"
+        th:style="${iterStat.odd} ? 'font-weight: bold;'">
+        <td th:text="${iterStat.index}+1" ></td>
+        <td th:text="${item.name}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
