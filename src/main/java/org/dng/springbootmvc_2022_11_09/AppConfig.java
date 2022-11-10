@@ -3,11 +3,16 @@ package org.dng.springbootmvc_2022_11_09;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Properties;
 
 
 @Configuration
@@ -34,6 +39,7 @@ public class AppConfig {
                 .username("root")
                 .password("dingo1975")
                 .url("jdbc:mysql://localhost:3306/students_db?createDatabaseIfNotExist=true")
+//                .url("jdbc:mysql://localhost:3306/students_db")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }
@@ -47,4 +53,40 @@ public class AppConfig {
         return hibernateJpaVendorAdapter;
     }
 
+
+//    @Bean(name = "entityManagerFactory")
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+//        entityManagerFactoryBean.setDataSource(dataSource());
+//        entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
+//        entityManagerFactoryBean.setPackagesToScan("org.dng.springbootmvc_2022_11_09");
+//
+//        final Properties hibernateProperties = new Properties();
+//        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+//        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//        hibernateProperties.setProperty("hibernate.show_sql", "true");
+//        entityManagerFactoryBean.setJpaProperties(hibernateProperties);
+//
+//        return entityManagerFactoryBean;
+//    }
+
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+//        factory.setJpaVendorAdapter(jpaVendorAdapter());
+//        factory.setPackagesToScan("org.dng.springbootmvc_2022_11_09");
+//        factory.setDataSource(dataSource());
+//        factory.setJpaPropertyMap(new HashMap<String, Object>() {{
+//            put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//            put("hibernate.hbm2ddl.auto", "create");
+//        }});
+//        factory.afterPropertiesSet();
+//        return factory;
+//    }
+//    @Bean
+//    public PlatformTransactionManager transactionManager() {
+//        JpaTransactionManager transactionManager = new JpaTransactionManager();
+//        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+//        return transactionManager;
+//    }
 }
