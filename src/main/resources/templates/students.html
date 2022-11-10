@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<!--    <span th:text = "${'Hello mr. ' +name}"></span>-->
+    <div class="container-fluid text-center">
+        <h1>Welcome ;)</h1>
+        <a th:href="@{/start}" class="header">start page</a>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <table id="example" class="table table-bordered" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>first name</th>
+                        <th>last name</th>
+                        <th>Inn</th>
+                        <th>e-mail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item, iterStat : ${listOfStudents}"
+                        th:style="${iterStat.odd} ? 'font-weight: bold;'">
+                        <td th:text="${iterStat.index}+1" ></td>
+                        <td th:text="${item.getFirstName()}"></td>
+                        <td th:text="${item.getLastName()}"></td>
+                        <td th:text="${item.getINN()}"></td>
+                        <td th:text="${item.geteMail()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -33,7 +33,7 @@ public class AppConfig {
                 .create()
                 .username("root")
                 .password("dingo1975")
-                .url("jdbc:mysql://localhost:3306/students_db")
+                .url("jdbc:mysql://localhost:3306/students_db?createDatabaseIfNotExist=true")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }
