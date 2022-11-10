@@ -1,6 +1,6 @@
 package org.dng.springbootmvc_2022_11_09;
 
-import org.dng.springbootmvc_2022_11_09.DAO.Student;
+import org.dng.springbootmvc_2022_11_09.DAO.model.Student;
 import org.dng.springbootmvc_2022_11_09.DAO.StudentsRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -20,7 +20,7 @@ public class ClassStartsAfterApp {
     public void doSomethingAfterStartup() {
         //System.out.println("app has just started up");
 
-        Student student = new Student("firstName", "seconfName", 12345678, "e-mail@gmail.com");
+//        Student student = new Student("firstName", "seconfName", 12345678, "e-mail@gmail.com");
 
         studentRepository.saveAll(List.of(
                 new Student("firstName", "seconfName", 12345678, "e-mail@gmail.com"),
