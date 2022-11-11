@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Start Title</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
 </head>
 <body>
 <!--    <span th:text = "${'Hello mr. ' +name}"></span>-->
@@ -36,7 +38,8 @@
                         <td th:text="${item.geteMail()}"></td>
                         <td>[[${item.geteMail()}]]</td>
                         <td>
-                            <a th:href="@{/students/edit(id=${item.getId})}">Edit</a>
+                            <a th:href="@{/students/addEditItem}">Add</a>
+                            <a th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a>
                             <a th:href="@{/students/delete(id=${item.getId})}">Delete</a>
                             <a th:href="@{students/details(id=${item.getId})}">Details</a>
                         </td>
