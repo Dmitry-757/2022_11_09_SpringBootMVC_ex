@@ -1,4 +1,4 @@
-package org.dng.springbootmvc_2022_11_09.DAO.model;
+package org.dng.springbootmvc_2022_11_09.model;
 
 import javax.persistence.*;
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package org.dng.springbootmvc_2022_11_09.Controllers;
 
-import org.dng.springbootmvc_2022_11_09.DAO.model.Student;
+import org.dng.springbootmvc_2022_11_09.model.Student;
 import org.dng.springbootmvc_2022_11_09.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

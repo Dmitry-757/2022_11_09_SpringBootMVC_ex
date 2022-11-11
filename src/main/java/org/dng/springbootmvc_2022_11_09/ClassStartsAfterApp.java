@@ -1,6 +1,6 @@
 package org.dng.springbootmvc_2022_11_09;
 
-import org.dng.springbootmvc_2022_11_09.DAO.model.Student;
+import org.dng.springbootmvc_2022_11_09.model.Student;
 import org.dng.springbootmvc_2022_11_09.DAO.StudentsRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
