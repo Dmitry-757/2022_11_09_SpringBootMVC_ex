@@ -36,7 +36,7 @@ public class StudentController {
 
     @GetMapping("students/addEditItem")
     public String editForm(Model model, @RequestParam(name = "id", required = false) Long id){
-        model.addAttribute("id", id);
+        //model.addAttribute("id", id);
         Student student;
         if (id != null){
             student = studentService.getById(id).get();

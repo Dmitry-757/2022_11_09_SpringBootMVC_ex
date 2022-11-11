@@ -51,7 +51,8 @@ public class StudentService {
     }
 
     public void delete(Long id) {
-        studentsRepository.deleteById(id);
+        studentsRepository.findById(id).ifPresent(studentsRepository::delete);
+//        studentsRepository.deleteById(id);
     }
 
 }

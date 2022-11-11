@@ -22,7 +22,6 @@
 <div class="container">
 <!--    <form th:action="@{/students/add}"-->
     <form th:action="${id == null } ? '/students/add' : '/students/update'"
-
           th:object="${item}" method="post" class="form-horizontal">
 
 <!--        <div th:hidden="${id == null}" style="margin-bottom: 25px" class="input-group">-->
@@ -33,34 +32,39 @@
         <input type="hidden" th:field="*{id}"/>
 <!--        </div>-->
 
-        <div style="margin-bottom: 25px" class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-user"></i>
-            </span>
-            <input th:field="*{firstName}" placeholder="firstName (*)" class="form-control">
+        <div style="margin-bottom: 25px" class="mb-3">
+<!--            <span class="input-group-addon">-->
+<!--                <i class="glyphicon glyphicon-user"></i>-->
+<!--            </span>-->
+            <label for="firstName" class="form-label">First name</label>
+            <input id="firstName" th:field="*{firstName}" placeholder="firstName (*)" class="form-control"/>
         </div>
-        <div style="margin-bottom: 25px" class="input-group">
+        <div style="margin-bottom: 25px" class="mb-3">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
             </span>
-            <input th:field="*{lastName}" placeholder="lastName (*)" class="form-control">
+            <label>Last name</label>
+            <input th:field="*{lastName}" placeholder="lastName (*)" class="form-control"/>
         </div>
-        <div style="margin-bottom: 25px" class="input-group">
+        <div style="margin-bottom: 25px" class="mb-3">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
             </span>
+            <label>INN</label>
             <input th:field="*{INN}" placeholder="INN (*)" class="form-control">
         </div>
-        <div style="margin-bottom: 25px" class="input-group">
+        <div style="margin-bottom: 25px" class="mb-3">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
             </span>
+            <label>eMail</label>
             <input th:field="*{eMail}" placeholder="eMail (*)" class="form-control">
         </div>
 
         <div class="form-group">
             <div class="col-sm-6 controls">
                 <button type="submit" class="btn btn-primary" th:text="${id == null } ? 'Add' : 'Save'"> Add</button>
+                <a th:href="@{/students}" class="btn btn-warning ">Cancel</a>
             </div>
         </div>
     </form>

@@ -26,6 +26,7 @@
                         <th>last name</th>
                         <th>Inn</th>
                         <th>e-mail</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,13 +36,13 @@
                         <td th:text="${item.getFirstName()}"></td>
                         <td th:text="${item.getLastName()}"></td>
                         <td th:text="${item.getINN()}"></td>
-                        <td th:text="${item.geteMail()}"></td>
+<!--                        <td th:text="${item.geteMail()}"></td>-->
                         <td>[[${item.geteMail()}]]</td>
                         <td>
                             <a th:href="@{/students/addEditItem}">Add</a>
                             <a th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a>
                             <a th:href="@{/students/delete(id=${item.getId})}">Delete</a>
-                            <a th:href="@{students/details(id=${item.getId})}">Details</a>
+<!--                            <a th:href="@{students/details(id=${item.getId})}">Details</a>-->
                         </td>
                     </tr>
                     </tbody>
