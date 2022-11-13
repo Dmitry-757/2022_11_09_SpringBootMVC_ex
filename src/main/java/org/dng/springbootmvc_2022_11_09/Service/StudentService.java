@@ -29,13 +29,13 @@ public class StudentService {
     public Optional<Student> getById(long id){
         return studentsRepository.findById(id);
     }
-    public void add(Student item) {
-        System.out.println(item);
-        studentsRepository.save(item);
-    }
+//    public void add(Student item) {
+//        System.out.println(item);
+//        studentsRepository.save(item);
+//    }
 
 
-    public void update(Student item) {
+    public void saveOrUpdate(Student item) {
         Optional<Student> optionalItem = studentsRepository.findById(item.getId());
         if (optionalItem.isPresent()) {
             Student editedItem = optionalItem.get();
@@ -47,6 +47,8 @@ public class StudentService {
                 editedItem.seteMail(item.geteMail());
                 studentsRepository.save(editedItem);
             }
+        }else {
+            studentsRepository.save(item);
         }
     }
 

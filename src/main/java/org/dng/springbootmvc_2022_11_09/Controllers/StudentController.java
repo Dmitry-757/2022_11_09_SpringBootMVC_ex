@@ -48,7 +48,7 @@ public class StudentController {
 
     @PostMapping("students/add")
     public String addStudent(@ModelAttribute(value = "item") Student item){
-        studentService.add(item);
+        studentService.saveOrUpdate(item);
 //        return "studentForm";
         return "redirect:/students";
     }
@@ -56,7 +56,7 @@ public class StudentController {
     @PostMapping("students/update")
     public String updateStudent(@ModelAttribute(value = "item") Student item){
 
-        studentService.update(item);
+        studentService.saveOrUpdate(item);
 //        return "studentForm";
         return "redirect:/students";
     }
