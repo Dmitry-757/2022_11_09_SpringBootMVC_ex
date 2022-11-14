@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>fragment</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container text-center fixed-top"
+        th:fragment="nameFragment1">
+    <h1>some header fragment</h1>
+</div>
+<!-- фрагмент футера -->
+<div class="container-fluid text-center fixed-bottom text-bg-dark"
+     th:fragment="footer"><h4>my some footer ;) </h4></div>
+</body>
+</html>

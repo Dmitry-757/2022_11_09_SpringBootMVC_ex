@@ -11,6 +11,11 @@ public class Student {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
+    @ManyToOne
+    @JoinColumn(name = "group_id", nullable = true)
+    private Group group;
+
     @Basic
     @Column(nullable = false, length = 100)
     private String firstName;
@@ -24,10 +29,25 @@ public class Student {
     @Column(nullable = false, length = 50)
     private String eMail;
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
     public Student() {
     }
 
-    public Student(String firstName, String lastName, long INN, String eMail) {
+    public Student(Group group, String firstName, String lastName, long INN, String eMail) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.INN = INN;
+        this.eMail = eMail;
+        this.group = group;
+    }
+    public Student( String firstName, String lastName, long INN, String eMail) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.INN = INN;

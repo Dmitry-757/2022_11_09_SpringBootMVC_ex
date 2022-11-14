@@ -6,10 +6,16 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+
+<!--<header th:insert="fragments/layouts.html :: nameFragment1"> </header>-->
+
 <!--    <span th:text = "${'Hello mr. ' +name}"></span>-->
     <div class="container-fluid text-center">
         <h1>Welcome ;)</h1>
         <a th:href="@{/students}" class="header">Manage students</a>
     </div>
+
+
+    <footer th:insert="fragments/layouts.html :: footer"></footer>
 </body>
 </html>
