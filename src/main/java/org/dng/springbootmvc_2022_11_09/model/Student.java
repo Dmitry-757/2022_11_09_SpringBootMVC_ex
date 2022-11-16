@@ -1,5 +1,7 @@
 package org.dng.springbootmvc_2022_11_09.model;
 
+import org.hibernate.annotations.OnDelete;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,7 +14,7 @@ public class Student {
     private Long id;
 
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "group_id", nullable = true)
     private Group group;
 

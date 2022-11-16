@@ -34,7 +34,7 @@ public class ClassStartsAfterApp {
 //        Student student = new Student("firstName", "seconfName", 12345678, "e-mail@gmail.com");
         Student st1 = new Student(gr1,"firstName", "seconfName", 12345678, "e-mail1@gmail.com");
         Student st2 = new Student(gr1,"firstName2", "seconfName2", 87654321, "e-mail2@gmail.com");
-        Student st3 = new Student(gr1,"firstName3", "seconfName3", 10000003, "e-mail3@gmail.com");
+        Student st3 = new Student(gr2,"firstName3", "seconfName3", 10000003, "e-mail3@gmail.com");
         studentRepository.saveAll(List.of(
                 st1,
                 st2,
