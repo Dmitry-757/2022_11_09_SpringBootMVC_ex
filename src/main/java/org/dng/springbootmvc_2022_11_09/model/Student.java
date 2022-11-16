@@ -99,7 +99,8 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return INN == student.INN && firstName.equals(student.firstName) && lastName.equals(student.lastName) && eMail.equals(student.eMail);
+        return INN == student.INN && firstName.equals(student.firstName) && lastName.equals(student.lastName)
+                && eMail.equals(student.eMail) && group.equals(student.group) ;
     }
 
     @Override

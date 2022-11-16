@@ -15,27 +15,32 @@
 </div>
 
 <div class="container-fluid text-center">
-    <h1 th:text="${id == null } ? 'Adding' : 'Editing'"></h1>
+    <h1 th:text="${item.id == null } ? 'Adding' : 'Editing'"></h1>
 </div>
 
 
 <div class="container">
 <!--    <form th:action="@{/students/add}"-->
-    <form th:action="${id == null } ? '/students/add' : '/students/update'"
-          th:object="${item}" method="post" class="form-horizontal">
+    <form th:object="${item}"
+          th:action="${item.getId() == null } ? '/students/add' : '/students/update'"
+           method="post" class="form-horizontal">
 
-<!--        <div th:hidden="${id == null}" style="margin-bottom: 25px" class="input-group">-->
-<!--            <span class="input-group-addon">-->
-<!--                <i class="glyphicon glyphicon-user"></i>-->
-<!--            </span>-->
-<!--        <input th:field="*{id}" placeholder="id (*)" class="form-control">-->
         <input type="hidden" th:field="*{id}"/>
+<!--        <input th:field="*{id}"/>-->
+
+<!--        <div style="margin-bottom: 25px" class="mb-3">-->
+<!--            <label for="group" class="form-label">Group</label>-->
+<!--            <input id="group" th:field="*{group.getName()}" placeholder="group (*)" class="form-control"/>-->
 <!--        </div>-->
 
         <div style="margin-bottom: 25px" class="mb-3">
-<!--            <span class="input-group-addon">-->
-<!--                <i class="glyphicon glyphicon-user"></i>-->
-<!--            </span>-->
+            <select th:field="*{group}">
+                <option th:each="group : ${groupList}" th:value="${group.id}" th:text="${group.getName()}"
+                th:selected="${item.getGroup()}"></option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 25px" class="mb-3">
             <label for="firstName" class="form-label">First name</label>
             <input id="firstName" th:field="*{firstName}" placeholder="firstName (*)" class="form-control"/>
         </div>
@@ -63,7 +68,7 @@
 
         <div class="form-group">
             <div class="col-sm-6 controls">
-                <button type="submit" class="btn btn-primary" th:text="${id == null } ? 'Add' : 'Save'"> Add</button>
+                <button type="submit" class="btn btn-primary d-flex align-items-center" th:text="${item.getId() != null } ? 'Save ...' : 'Add'"> Add</button>
                 <a th:href="@{/students}" class="btn btn-warning ">Cancel</a>
             </div>
         </div>

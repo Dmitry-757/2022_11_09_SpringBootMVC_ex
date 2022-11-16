@@ -1,5 +1,7 @@
 package org.dng.springbootmvc_2022_11_09.Controllers;
 
+import org.dng.springbootmvc_2022_11_09.Service.GroupService;
+import org.dng.springbootmvc_2022_11_09.model.Group;
 import org.dng.springbootmvc_2022_11_09.model.Student;
 import org.dng.springbootmvc_2022_11_09.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/")
 public class StudentController {
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private GroupService groupService;
 
     @GetMapping("/start")
 //    public String getHelloPage(Model model, @RequestParam(value = "name") String name){
@@ -44,6 +51,11 @@ public class StudentController {
             student = studentService.getById(id).get();
         } else student = new Student();
         model.addAttribute("item", student);
+
+        List<Group> groupList;
+        groupList = groupService.getAll();
+        model.addAttribute("groupList", groupList);
+
         return "studentForm";
     }
 

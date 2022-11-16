@@ -18,8 +18,8 @@ public class StudentService {
     //but if we want to have "final" field - we need to use constructor for initialization
     private final StudentsRepository studentsRepository;
     @Autowired
-    public StudentService(StudentsRepository albumRepository) {
-        this.studentsRepository = albumRepository;
+    public StudentService(StudentsRepository studentsRepository) {
+        this.studentsRepository = studentsRepository;
     }
 
     public List<Student> getAll() {
@@ -45,6 +45,7 @@ public class StudentService {
                 editedItem.setLastName(item.getLastName());
                 editedItem.setINN(item.getINN());
                 editedItem.seteMail(item.geteMail());
+                editedItem.setGroup(item.getGroup());
                 studentsRepository.save(editedItem);
             }
         }else {
