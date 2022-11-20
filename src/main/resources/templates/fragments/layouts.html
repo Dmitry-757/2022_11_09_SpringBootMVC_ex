@@ -6,10 +6,38 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<div class="container text-center fixed-top"
-        th:fragment="nameFragment1">
-    <h1>some header fragment</h1>
+<!--<div class="container text-center fixed-top" th:fragment="myHeader1">-->
+<div class="container text-center " th:fragment="myHeader2">
+    <h1>Welcome ;)</h1>
+    <a th:href="@{/groups}" class="header">Manage groups of students</a>
+    <br>
+    <br>
+    <a th:href="@{/subjects}" class="header">Manage subjects</a>
+    <br>
+    <br>
+    <a th:href="@{/students}" class="header">Manage students</a>
+
 </div>
+
+<header th:fragment="myHeader1">
+    <ul class="nav justify-content-center bg-white">
+        <li class="nav-item">
+            <a class="nav-link " th:href="@{/start}">Start page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " th:href="@{/students}">Students</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/groups}">Groups</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/subjects}">Subjects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/marks}">Marks</a>
+        </li>
+    </ul>
+</header>
 <!-- фрагмент футера -->
 <div class="container-fluid text-center fixed-bottom text-bg-dark"
      th:fragment="footer"><h4>my some footer ;) </h4></div>

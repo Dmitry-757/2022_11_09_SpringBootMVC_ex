@@ -109,4 +109,10 @@ public class Student {
     public int hashCode() {
         return Objects.hash(firstName, lastName, INN, eMail);
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName +
+                " group=" + group;
+    }
 }

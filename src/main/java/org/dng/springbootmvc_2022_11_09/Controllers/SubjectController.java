@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SubjectController {
     private final SubjectService service;
-    private final String prefixUrl="/subject";
+    private final String prefixUrl="/subjects";
 
     @Autowired
     public SubjectController(SubjectService service) {

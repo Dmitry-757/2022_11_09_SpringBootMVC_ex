@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Start Title</title>
+    <title>Students list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>-->
 <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
@@ -10,11 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </head>
 <body>
+<header th:insert="fragments/layouts.html :: myHeader1"> </header>
+
 <!--    <span th:text = "${'Hello mr. ' +name}"></span>-->
-    <div class="container-fluid text-center">
-        <h1>Welcome ;)</h1>
-        <a th:href="@{/start}" class="header">start page</a>
-    </div>
+<!--    <div class="container-fluid text-center">-->
+<!--        <h1>Welcome ;)</h1>-->
+<!--        <a th:href="@{/start}" class="header">start page</a>-->
+<!--    </div>-->
 
 
     <div class="container">
@@ -62,6 +64,8 @@
                     </tr>
                     </tbody>
                 </table>
+<!--                <button type="button" th:href="@{/students/addEditItem}" class="btn btn-primary d-flex align-items-center"> Add</button>-->
+                <a th:href="@{/students/addEditItem}" class="btn btn-primary ">Add item</a>
             </div>
         </div>
     </div>
