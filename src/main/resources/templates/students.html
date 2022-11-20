@@ -43,9 +43,20 @@
                         <td>[[${item.geteMail()}]]</td>
                         <td th:text="${ item.getGroup() != null ? item.getGroup().getName() : ''}"></td>
                         <td>
-                            <a th:href="@{/students/addEditItem}">Add</a>
-                            <a th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a>
-                            <a th:href="@{/students/delete(id=${item.getId})}">Delete</a>
+                            <div class="dropend">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                        id="dropdownMenuButton1">
+                                    Action
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" th:href="@{/students/addEditItem}">Add</a> </li>
+                                    <li><a class="dropdown-item" th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a> </li>
+                                    <li><a class="dropdown-item" th:href="@{/students/delete(id=${item.getId})}">Delete</a> </li>
+                                </ul>
+                            </div>
+<!--                            <a th:href="@{/students/addEditItem}">Add</a>-->
+<!--                            <a th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a>-->
+<!--                            <a th:href="@{/students/delete(id=${item.getId})}">Delete</a>-->
 <!--                            <a th:href="@{students/details(id=${item.getId})}">Details</a>-->
                         </td>
                     </tr>
@@ -55,23 +66,18 @@
         </div>
     </div>
 <!--<span>ggggggggggggggggggggggggggggg</span>-->
-<!--<ul >-->
-<!--    <li><h6 >Dropdown header</h6></li>-->
-<!--    <li><a  href="#">Action</a></li>-->
-<!--    <li><a  href="#">Another action</a></li>-->
-<!--</ul>-->
-<div class="container">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-        </button>
-        <ul class="dropdown-menu">
-            <li><button class="dropdown-item" type="button">Action</button></li>
-            <li><button class="dropdown-item" type="button">Another action</button></li>
-            <li><button class="dropdown-item" type="button">Something else here</button></li>
-        </ul>
-    </div>
-</div>
+<!--<div class="container">-->
+<!--    <div class="dropdown">-->
+<!--        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--        </button>-->
+<!--        <ul class="dropdown-menu">-->
+<!--            <li><button class="dropdown-item" type="button">Action</button></li>-->
+<!--            <li><button class="dropdown-item" type="button">Another action</button></li>-->
+<!--            <li><button class="dropdown-item" type="button">Something else here</button></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>

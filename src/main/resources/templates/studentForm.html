@@ -34,7 +34,8 @@
 <!--        </div>-->
 
         <div style="margin-bottom: 25px" class="mb-3">
-            <select th:field="*{group}">
+            <label>Group</label>
+            <select id="group" th:field="*{group}" class="form-control">
                 <option th:each="group : ${groupList}" th:value="${group.id}" th:text="${group.getName()}"
                 th:selected="${item.getGroup()}"></option>
             </select>

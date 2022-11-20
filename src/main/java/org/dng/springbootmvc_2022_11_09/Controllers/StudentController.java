@@ -15,11 +15,14 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/")
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+    private final GroupService groupService;
 
     @Autowired
-    private GroupService groupService;
+    public StudentController(StudentService studentService, GroupService groupService) {
+        this.studentService = studentService;
+        this.groupService = groupService;
+    }
 
     @GetMapping("/start")
 //    public String getHelloPage(Model model, @RequestParam(value = "name") String name){

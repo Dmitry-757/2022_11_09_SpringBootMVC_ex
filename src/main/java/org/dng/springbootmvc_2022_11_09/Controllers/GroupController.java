@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller()
 public class GroupController {
+
+    private final GroupService groupService;
     @Autowired
-    private GroupService groupService;
+    public GroupController(GroupService groupService) {
+        this.groupService = groupService;
+    }
 
     @GetMapping("/groups")
     public String showGroupsList(Model model) {

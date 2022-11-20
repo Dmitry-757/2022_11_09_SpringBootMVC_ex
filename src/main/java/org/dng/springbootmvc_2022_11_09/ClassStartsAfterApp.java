@@ -4,6 +4,7 @@ import org.dng.springbootmvc_2022_11_09.DAO.GroupRepository;
 import org.dng.springbootmvc_2022_11_09.model.Group;
 import org.dng.springbootmvc_2022_11_09.model.Student;
 import org.dng.springbootmvc_2022_11_09.DAO.StudentsRepository;
+import org.dng.springbootmvc_2022_11_09.model.Subject;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
