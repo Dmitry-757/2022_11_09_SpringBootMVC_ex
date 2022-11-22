@@ -3,7 +3,6 @@ package org.dng.springbootmvc_2022_11_09.Controllers;
 import org.dng.springbootmvc_2022_11_09.Service.MarkService;
 import org.dng.springbootmvc_2022_11_09.Service.StudentService;
 import org.dng.springbootmvc_2022_11_09.Service.SubjectService;
-import org.dng.springbootmvc_2022_11_09.model.Group;
 import org.dng.springbootmvc_2022_11_09.model.Mark;
 import org.dng.springbootmvc_2022_11_09.model.Student;
 import org.dng.springbootmvc_2022_11_09.model.Subject;

@@ -33,6 +33,7 @@ public class Mark {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 //    @NotEmpty(message = "Date must be selected!")
     @NotNull(message = "Date must be selected!")
+    @PastOrPresent(message = "date must be past or present!")
     private LocalDate date;
     @Basic
     @Column(nullable = false, length = 2)
