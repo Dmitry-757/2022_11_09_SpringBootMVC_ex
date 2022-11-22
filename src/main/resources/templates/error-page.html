@@ -7,7 +7,7 @@
 <body>
     <h1>Something is wrong</h1>
     <h1 th:text="'error status = '+${status}"></h1>
-    <h1 th:text="'error description = '+${errMessage}"></h1>
+    <h1 th:text="${errMessage}"></h1>
     <a th:href="@{/start}" >Go Home</a>
 </body>
 </html>

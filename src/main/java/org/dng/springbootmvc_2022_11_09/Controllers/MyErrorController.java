@@ -16,11 +16,16 @@ public class MyErrorController implements ErrorController {
         //do something like logging
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 //        String errMessage = RequestDispatcher.ERROR_MESSAGE.toString();
-        String errMessage = "Check url!";
+//        String errMessage = "Check url!";
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
             model.addAttribute("status", statusCode);
+            String errMessage = switch (statusCode){
+                case 404 ->"page not found!";
+                case 500 ->"some ass was happened on serverside...";
+                default -> "oops! (((";
+            };
             model.addAttribute("errMessage", errMessage);
 
 //            if(statusCode == HttpStatus.NOT_FOUND.value()) {

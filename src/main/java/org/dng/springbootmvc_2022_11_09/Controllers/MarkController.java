@@ -10,11 +10,13 @@ import org.dng.springbootmvc_2022_11_09.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -74,23 +76,49 @@ public class MarkController {
     }
 
     @PostMapping(prefix + "/add")
-    public String add(@ModelAttribute(value = "item") Mark item) {
-        if (item.getMark() > 0) {
+    public String add(Model model, @ModelAttribute(value = "item") @Valid Mark item, BindingResult bindingResult) {
+//        if (item.getMark() > 0) {
+//            markService.saveOrUpdate(item);
+//            return "redirect:" + prefix;
+//        }
+//        String message = "Need to fill all parameters properly!";
+//        return "redirect:" + prefix + "/addEditItem?date=" + item.getDate()+"&message="+message;
+        if(bindingResult.hasErrors()){
+            model.addAttribute("item", item);
+
+            List<Student> studentsList = studentService.getAll();
+            model.addAttribute("studentsList", studentsList);
+
+            List<Subject> subjectList = subjectService.getAll();
+            model.addAttribute("subjectList", subjectList);
+
+            return "markForm";
+        }
             markService.saveOrUpdate(item);
             return "redirect:" + prefix;
-        }
-        String message = "Need to fill all parameters properly!";
-        return "redirect:" + prefix + "/addEditItem?date=" + item.getDate()+"&message="+message;
     }
 
     @PostMapping(prefix + "/update")
-    public String update(@ModelAttribute(value = "item") Mark item) {
-        if (item.getMark() > 0) {
-            markService.saveOrUpdate(item);
-            return "redirect:" + prefix;
+    public String update(Model model, @ModelAttribute(value = "item") @Valid Mark item, BindingResult bindingResult) {
+//        if (item.getMark() > 0) {
+//            markService.saveOrUpdate(item);
+//            return "redirect:" + prefix;
+//        }
+//        String message = "Need to fill all parameters properly!";
+//        return "redirect:" + prefix + "/addEditItem?date=" + item.getDate()+"&id="+item.getId()+"&message="+message;
+        if(bindingResult.hasErrors()){
+            model.addAttribute("item", item);
+
+            List<Student> studentsList = studentService.getAll();
+            model.addAttribute("studentsList", studentsList);
+
+            List<Subject> subjectList = subjectService.getAll();
+            model.addAttribute("subjectList", subjectList);
+
+            return "markForm";
         }
-        String message = "Need to fill all parameters properly!";
-        return "redirect:" + prefix + "/addEditItem?date=" + item.getDate()+"&id="+item.getId()+"&message="+message;
+        markService.saveOrUpdate(item);
+        return "redirect:" + prefix;
     }
 
     @GetMapping(prefix + "/delete")
