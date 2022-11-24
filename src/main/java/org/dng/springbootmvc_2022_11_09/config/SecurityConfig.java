@@ -8,10 +8,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -26,15 +29,28 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user")
+//        manager.createUser(User.withUsername("user")
+//                .password(bCryptPasswordEncoder.encode("userPass"))
+//                .roles("USER")
+//                .build());
+//        manager.createUser(User.withUsername("admin")
+//                .password(bCryptPasswordEncoder.encode("adminPass"))
+//                .roles("USER", "ADMIN")
+//                .build());
+//        return manager;
+
+        UserDetails user1 = User.builder()
+                .username("admin")
+                .password(bCryptPasswordEncoder.encode("adminPass"))
+                .roles("ADMIN", "USER")
+                .build();
+        UserDetails user2 = User.builder()
+                .username("user")
                 .password(bCryptPasswordEncoder.encode("userPass"))
                 .roles("USER")
-                .build());
-        manager.createUser(User.withUsername("admin")
-                .password(bCryptPasswordEncoder.encode("adminPass"))
-                .roles("USER", "ADMIN")
-                .build());
-        return manager;
+                .build();
+        return new InMemoryUserDetailsManager(List.of(user1, user2));
+
     }
 
     @Bean
@@ -48,13 +64,19 @@ public class SecurityConfig {
                 .hasAnyRole("ADMIN")
                 .antMatchers("/user/**")
                 .hasAnyRole("USER", "ADMIN")
-                .antMatchers("/login/**")
+                .antMatchers("/login/**","/logout/**")
                 .anonymous()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .httpBasic()
                 .and()
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/start")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                )
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
